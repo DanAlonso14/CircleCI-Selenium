@@ -82,23 +82,12 @@ jobs:
           pkg-manager: pip
       - aws-cli/setup
       - run:
-          name: Run Selenium Tests on AWS EC2
+          name: Run Selenium Tests
           command: |
-            mv /home/circleci/Flask-calculator/circleci.pem /home/circleci/
-            chmod 600 /home/circleci/circleci.pem
-            # Connect to the EC2 instance using the Elastic IP
-            ELASTIC_IP=34.207.198.25
-            ssh -o StrictHostKeyChecking=no -i /home/circleci/circleci.pem ec2-user@${ELASTIC_IP} '
-              # Navigate to the directory with your Selenium tests
-              cd /home/ec2-user/
-              
-              # Run your Selenium test scripts or test suite
-              python selenium_driver_code.py -v
-              
-              # Store test results on the EC2 instance
-              mv test-results.xml /home/ec2-user/test-results
-            '
-
+            pwd
+            ls -lrtha
+            ./build.sh 
+            ls -lrtha
 workflows:
   build_and_test_deploy:
     jobs:
