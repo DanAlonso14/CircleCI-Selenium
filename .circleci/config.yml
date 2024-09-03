@@ -3,19 +3,20 @@ executors:
   python-executor:
     docker:
       - image: cimg/python:3.9.9
-      - image: selenium/standalone-chrome:3.11.0
 orbs:
     python: circleci/python@2.1.1
     aws-cli: circleci/aws-cli@2.0.3
-    browser-tools: circleci/browser-tools@1.4.0
+    browser-tools: circleci/browser-tools@1.4.4
  
 jobs:
   builds:
     working_directory: ~/Flask-calculator
     executor: python-executor
     steps:
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
+      - run: sudo apt-get update
+      - browser-tools/install-browser-tools:
+          chrome-version: 116.0.5845.96
+          replace-existing: true
       - checkout
       - run:
           command: |
