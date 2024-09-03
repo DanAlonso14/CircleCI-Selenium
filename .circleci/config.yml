@@ -14,8 +14,8 @@ jobs:
     working_directory: ~/Flask-calculator
     executor: python-executor
     steps:
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
+      - browser-tools/install-browser-tools:
+          chrome-version: "92.0.4515.159"
       - checkout
       - run:
           command: |
