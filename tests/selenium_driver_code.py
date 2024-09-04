@@ -16,7 +16,7 @@ import os
 app_url = 'http://127.0.0.1:5000/'
 print("Navigating to:", app_url)
 #driver.get(app_url)
-service = Service(executable_path=r'/home/circleci/Flask-calculator')
+service = Service(executable_path=r'/usr/local/bin/chromedriver')
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
 options.add_argument('--no-sandbox')
