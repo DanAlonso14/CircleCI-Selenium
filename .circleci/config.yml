@@ -89,6 +89,7 @@ jobs:
       - run:
           name: Run Selenium Tests
           command: |
+            whereis chrome
             pwd
             ls -lrtha
             chmod 777 build.sh
