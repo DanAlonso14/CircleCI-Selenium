@@ -13,17 +13,21 @@ import os
 #driver = webdriver.Chrome()
 
 # Open the Flask app URL
-app_url = 'http://127.0.0.1:5000/'
+app_url = 'https://circleci.azurewebsites.net/'
 print("Navigating to:", app_url)
 #driver.get(app_url)
 #service = Service(executable_path=r'/usr/local/bin/chromedriver')
 options = webdriver.ChromeOptions()
-#options.add_argument('--headless')
+options.add_argument('enable-automation')
+options.add_argument('--headless')
 options.add_argument('--no-sandbox')
+options.add_argument("--disable-extensions")
+options.add_argument("--dns-prefetch-disable")
+options.add_argument("--disable-gpu")
 #options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--remote-debugging-pipe')
 options.add_experimental_option("excludeSwitches", ['enable-automation'])
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(options=options, version_main=113, enable_cdp_events=True, headless=True)
 driver.get(app_url)
 
 
