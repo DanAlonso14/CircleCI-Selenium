@@ -22,7 +22,7 @@ options.add_argument('--headless')
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 driver = webdriver.Chrome(service=service, options=options)
-driver.get('app_url')
+driver.get(app_url)
 
 
 passed_tests = 0
