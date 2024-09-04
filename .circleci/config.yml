@@ -95,7 +95,6 @@ jobs:
             chmod 777 build.sh
             ./build.sh 
             ls -lrtha
-            curl https://circleci.azurewebsites.net/
             cd tests
             chmod 777 selenium_driver_code.py
             python selenium_driver_code.py
