@@ -27,7 +27,7 @@ options.add_argument("--disable-gpu")
 #options.add_argument('--disable-dev-shm-usage')
 options.add_argument('--remote-debugging-pipe')
 options.add_experimental_option("excludeSwitches", ['enable-automation'])
-driver = webdriver.Chrome(options=options, version_main=113, enable_cdp_events=True, headless=True)
+driver = webdriver.Chrome(options=options)
 driver.get(app_url)
 
 
